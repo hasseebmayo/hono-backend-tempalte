@@ -1,10 +1,12 @@
 /* eslint-disable ts/no-explicit-any */
 import type { OpenAPIHono, RouteConfig, RouteHandler, z } from '@hono/zod-openapi'
 import type { Env } from 'hono'
+import type { auth } from '~/lib/auth'
 
 export interface AppBindings {
   Variables: {
-    user: IPayload
+    user: typeof auth.$Infer.Session.user | null
+    session: typeof auth.$Infer.Session.session | null
   }
 }
 export type AppOpenAPI = OpenAPIHono<AppBindings>
