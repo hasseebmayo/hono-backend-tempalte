@@ -34,6 +34,8 @@ app.on(['POST', 'GET'], '/api/auth/*', c => {
 })
 registerRoutes(app)
 configureOpenAPI(app)
+console.log('Auth reference available at http://localhost:8080/api/auth/reference')
+console.log('API reference available at http://localhost:8080/reference')
 
 export default {
   fetch: app.fetch,
