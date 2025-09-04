@@ -5,7 +5,7 @@ export function zodResponseSchema(schema?: ZodSchema) {
   const baseSchema = z
     .object({
       message: z.string().openapi({ description: 'Response message' }),
-      success: z.boolean().openapi({ description: 'Request success status' }),
+      // success: z.boolean().openapi({ description: 'Request success status' }),
     })
     .openapi({ description: 'Base response schema' })
 

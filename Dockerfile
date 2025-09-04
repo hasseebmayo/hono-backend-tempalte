@@ -14,6 +14,12 @@ RUN bun install --frozen-lockfile --production=false
 # Build stage
 FROM base AS build
 
+# Copy Prisma schema first
+COPY prisma ./prisma
+
+# Generate Prisma client
+RUN bun run db:generate
+
 # Copy source code
 COPY src ./src
 COPY tsconfig.json* ./
